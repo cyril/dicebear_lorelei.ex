@@ -74,6 +74,8 @@ end
 
 ## Options
 
+All options are validated at the boundary. Invalid values raise an `ArgumentError` with a descriptive message indicating what was expected and what was received.
+
 ### Core options
 
 | Option | Type | Default | Description |
@@ -118,6 +120,22 @@ DicebearLorelei.svg("seed",
   hair: [:variant10, :variant20, :variant30]
 )
 ```
+
+Available variants per component:
+
+| Component | Variants |
+|-----------|----------|
+| `:hair` | `:variant01` .. `:variant48` |
+| `:head` | `:variant01` .. `:variant04` |
+| `:eyes` | `:variant01` .. `:variant24` |
+| `:eyebrows` | `:variant01` .. `:variant13` |
+| `:mouth` | `:happy01` .. `:happy18`, `:sad01` .. `:sad09` |
+| `:nose` | `:variant01` .. `:variant06` |
+| `:beard` | `:variant01`, `:variant02` |
+| `:glasses` | `:variant01` .. `:variant05` |
+| `:earrings` | `:variant01` .. `:variant03` |
+| `:freckles` | `:variant01` |
+| `:hair_accessories` | `:flowers` |
 
 ### Probability options
 

@@ -339,7 +339,8 @@ defmodule DicebearLorelei.AvatarTest do
 
       # Both should use variant01 for eyes; extract just the eyes portion
       # by checking both contain the same eyes paths (they share the variant)
-      assert svg1 != svg2  # Other components still differ from different seeds
+      # Other components still differ from different seeds
+      assert svg1 != svg2
     end
   end
 
@@ -349,8 +350,7 @@ defmodule DicebearLorelei.AvatarTest do
 
   @snapshot_cases [
     {"Felix", %{}, "1d9957b95820b27e50e40203242ccb37554ea54b91d2d9dbf8bfb098b37824e4"},
-    {"Felix", %{size: 128},
-     "a67e35959850bab543e6621cbcb9e4793e4a096d4c75021f58bb01408270850a"},
+    {"Felix", %{size: 128}, "a67e35959850bab543e6621cbcb9e4793e4a096d4c75021f58bb01408270850a"},
     {"Felix", %{flip: true, radius: 50},
      "f647cd26d958a04dd3efb06ffdd8e8f2c325465a5e31e21fcda98135c74c867e"},
     {"Felix", %{scale: 150, rotate: 45},
@@ -361,8 +361,7 @@ defmodule DicebearLorelei.AvatarTest do
      "cbb4904dfd946ead2a7f4c1e71d00ab3410c440296895e66aeaec5a4491bbd5d"},
     {"Felix", %{background_color: {"b6e3f4", "ff0000"}, background_type: {"gradientLinear"}},
      "9bbbd84edc7f6934da4337b43b10216b2828f99d52a64ca95a335586360599c2"},
-    {"Felix", %{clip: false},
-     "ce0d95c8a3b22c42c4222db27baa53806e6fa645765ca5647fe775985691e7bb"},
+    {"Felix", %{clip: false}, "ce0d95c8a3b22c42c4222db27baa53806e6fa645765ca5647fe775985691e7bb"},
     {"Felix", %{beard_probability: 100},
      "fb37e2dee83496e87b8025204df55f8a13e160045568e1920094cd5d37e79ca2"},
     {"Felix", %{glasses_probability: 100},

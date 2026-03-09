@@ -70,13 +70,14 @@ defmodule DicebearLoreleiTest do
     end
 
     test "disables optional components with zero probability" do
-      svg = DicebearLorelei.svg("glasses_seed",
-        glasses_probability: 0,
-        beard_probability: 0,
-        earrings_probability: 0,
-        freckles_probability: 0,
-        hair_accessories_probability: 0
-      )
+      svg =
+        DicebearLorelei.svg("glasses_seed",
+          glasses_probability: 0,
+          beard_probability: 0,
+          earrings_probability: 0,
+          freckles_probability: 0,
+          hair_accessories_probability: 0
+        )
 
       assert is_binary(svg)
     end
@@ -147,26 +148,27 @@ defmodule DicebearLoreleiTest do
     end
 
     test "all options at once" do
-      svg = DicebearLorelei.svg("test",
-        size: 128,
-        radius: 25,
-        scale: 150,
-        flip: true,
-        rotate: 45,
-        translate_x: 10,
-        translate_y: -10,
-        clip: true,
-        background_color: ["AABBCC", "DDEEFF"],
-        background_type: ["gradientLinear"],
-        background_rotation: [-90, 90],
-        hair_color: ["2c1810"],
-        skin_color: ["f5d0b0"],
-        eyes_color: ["1a1a1a"],
-        beard_probability: 50,
-        glasses_probability: 50,
-        hair: [:variant01, :variant02, :variant03],
-        eyes: [:variant01, :variant05, :variant10]
-      )
+      svg =
+        DicebearLorelei.svg("test",
+          size: 128,
+          radius: 25,
+          scale: 150,
+          flip: true,
+          rotate: 45,
+          translate_x: 10,
+          translate_y: -10,
+          clip: true,
+          background_color: ["AABBCC", "DDEEFF"],
+          background_type: ["gradientLinear"],
+          background_rotation: [-90, 90],
+          hair_color: ["2c1810"],
+          skin_color: ["f5d0b0"],
+          eyes_color: ["1a1a1a"],
+          beard_probability: 50,
+          glasses_probability: 50,
+          hair: [:variant01, :variant02, :variant03],
+          eyes: [:variant01, :variant05, :variant10]
+        )
 
       assert String.starts_with?(svg, "<svg")
       assert String.ends_with?(svg, "</svg>")

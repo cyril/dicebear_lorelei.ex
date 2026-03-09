@@ -4,26 +4,26 @@ defmodule DicebearLorelei.Options do
   # Variant tuples computed once at compile time.
   # Order matches upstream @dicebear/lorelei schema.js exactly.
 
-  @hair_variants (for n <- 48..1//-1, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
+  @hair_variants for(n <- 48..1//-1, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
                  |> List.to_tuple()
 
   @head_variants {:variant04, :variant03, :variant02, :variant01}
 
-  @eyes_variants (for n <- 24..1//-1, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
+  @eyes_variants for(n <- 24..1//-1, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
                  |> List.to_tuple()
 
-  @eyebrows_variants (for n <- 13..1//-1, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
+  @eyebrows_variants for(n <- 13..1//-1, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
                      |> List.to_tuple()
 
-  @mouth_variants {:happy01, :happy02, :happy03, :happy04, :happy05, :happy06,
-                   :happy07, :happy08, :happy18, :happy09, :happy10, :happy11,
-                   :happy12, :happy13, :happy14, :happy17, :happy15, :happy16,
-                   :sad01, :sad02, :sad03, :sad04, :sad05, :sad06, :sad07, :sad08, :sad09}
+  @mouth_variants {:happy01, :happy02, :happy03, :happy04, :happy05, :happy06, :happy07, :happy08,
+                   :happy18, :happy09, :happy10, :happy11, :happy12, :happy13, :happy14, :happy17,
+                   :happy15, :happy16, :sad01, :sad02, :sad03, :sad04, :sad05, :sad06, :sad07,
+                   :sad08, :sad09}
 
-  @nose_variants (for n <- 1..6, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
+  @nose_variants for(n <- 1..6, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
                  |> List.to_tuple()
 
-  @glasses_variants (for n <- 1..5, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
+  @glasses_variants for(n <- 1..5, do: :"variant#{String.pad_leading("#{n}", 2, "0")}")
                     |> List.to_tuple()
 
   @beard_variants {:variant01, :variant02}

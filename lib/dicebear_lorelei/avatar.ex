@@ -140,9 +140,17 @@ defmodule DicebearLorelei.Avatar do
 
   defp build_body(components, colors) do
     [
-      "<g transform=\"translate(", @body_translate_x, " ", @body_translate_y, ")\">",
+      "<g transform=\"translate(",
+      @body_translate_x,
+      " ",
+      @body_translate_y,
+      ")\">",
       render_component(components, :hair, colors),
-      "</g><g transform=\"translate(", @body_translate_x, " ", @body_translate_y, ")\">",
+      "</g><g transform=\"translate(",
+      @body_translate_x,
+      " ",
+      @body_translate_y,
+      ")\">",
       render_component(components, :hair_accessories, colors),
       "</g>"
     ]
@@ -284,7 +292,18 @@ defmodule DicebearLorelei.Avatar do
 
   defp maybe_rotate(body, angle) do
     a = Integer.to_string(angle)
-    ["<g transform=\"rotate(", a, ", ", @canvas_center_str, ", ", @canvas_center_str, ")\">", body, "</g>"]
+
+    [
+      "<g transform=\"rotate(",
+      a,
+      ", ",
+      @canvas_center_str,
+      ", ",
+      @canvas_center_str,
+      ")\">",
+      body,
+      "</g>"
+    ]
   end
 
   defp maybe_translate(body, 0, 0), do: body
@@ -300,24 +319,45 @@ defmodule DicebearLorelei.Avatar do
 
   defp maybe_background(body, %{colors: {primary, _secondary}, type: "solid"}) do
     [
-      "<rect fill=\"", primary, "\" width=\"", @canvas_size_str,
-      "\" height=\"", @canvas_size_str,
-      "\" x=\"", @canvas_origin_str,
-      "\" y=\"", @canvas_origin_str, "\" />",
+      "<rect fill=\"",
+      primary,
+      "\" width=\"",
+      @canvas_size_str,
+      "\" height=\"",
+      @canvas_size_str,
+      "\" x=\"",
+      @canvas_origin_str,
+      "\" y=\"",
+      @canvas_origin_str,
+      "\" />",
       body
     ]
   end
 
-  defp maybe_background(body, %{colors: {primary, secondary}, type: "gradientLinear", rotation: rot}) do
+  defp maybe_background(body, %{
+         colors: {primary, secondary},
+         type: "gradientLinear",
+         rotation: rot
+       }) do
     [
-      "<rect fill=\"url(#backgroundLinear)\" width=\"", @canvas_size_str,
-      "\" height=\"", @canvas_size_str,
-      "\" x=\"", @canvas_origin_str,
-      "\" y=\"", @canvas_origin_str, "\" />",
+      "<rect fill=\"url(#backgroundLinear)\" width=\"",
+      @canvas_size_str,
+      "\" height=\"",
+      @canvas_size_str,
+      "\" x=\"",
+      @canvas_origin_str,
+      "\" y=\"",
+      @canvas_origin_str,
+      "\" />",
       "<defs><linearGradient id=\"backgroundLinear\" gradientTransform=\"rotate(",
-      Integer.to_string(rot), " 0.5 0.5)\">",
-      "<stop stop-color=\"", primary, "\"/>",
-      "<stop offset=\"1\" stop-color=\"", secondary, "\"/>",
+      Integer.to_string(rot),
+      " 0.5 0.5)\">",
+      "<stop stop-color=\"",
+      primary,
+      "\"/>",
+      "<stop offset=\"1\" stop-color=\"",
+      secondary,
+      "\"/>",
       "</linearGradient></defs>",
       body
     ]
@@ -330,10 +370,22 @@ defmodule DicebearLorelei.Avatar do
     ry = rx
 
     [
-      "<mask id=\"viewboxMask\"><rect width=\"", @canvas_size_str, "\" height=\"", @canvas_size_str,
-      "\" rx=\"", rx, "\" ry=\"", ry,
-      "\" x=\"", @canvas_origin_str, "\" y=\"", @canvas_origin_str, "\" fill=\"#fff\" /></mask>",
-      "<g mask=\"url(#viewboxMask)\">", body, "</g>"
+      "<mask id=\"viewboxMask\"><rect width=\"",
+      @canvas_size_str,
+      "\" height=\"",
+      @canvas_size_str,
+      "\" rx=\"",
+      rx,
+      "\" ry=\"",
+      ry,
+      "\" x=\"",
+      @canvas_origin_str,
+      "\" y=\"",
+      @canvas_origin_str,
+      "\" fill=\"#fff\" /></mask>",
+      "<g mask=\"url(#viewboxMask)\">",
+      body,
+      "</g>"
     ]
   end
 

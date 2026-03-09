@@ -19,22 +19,49 @@ defmodule DicebearLorelei.Validation do
 
   @valid_background_types %{"solid" => true, "gradientLinear" => true}
 
-  @known_keys Map.from_keys([
-    :seed, :flip, :rotate, :scale, :radius, :size,
-    :background_color, :background_type, :background_rotation,
-    :translate_x, :translate_y, :clip,
-    :beard, :beard_probability,
-    :earrings, :earrings_color, :earrings_probability,
-    :eyebrows, :eyebrows_color,
-    :eyes, :eyes_color,
-    :freckles, :freckles_color, :freckles_probability,
-    :glasses, :glasses_color, :glasses_probability,
-    :hair, :hair_accessories, :hair_accessories_color, :hair_accessories_probability,
-    :hair_color, :head,
-    :mouth, :mouth_color,
-    :nose, :nose_color,
-    :skin_color
-  ], true)
+  @known_keys Map.from_keys(
+                [
+                  :seed,
+                  :flip,
+                  :rotate,
+                  :scale,
+                  :radius,
+                  :size,
+                  :background_color,
+                  :background_type,
+                  :background_rotation,
+                  :translate_x,
+                  :translate_y,
+                  :clip,
+                  :beard,
+                  :beard_probability,
+                  :earrings,
+                  :earrings_color,
+                  :earrings_probability,
+                  :eyebrows,
+                  :eyebrows_color,
+                  :eyes,
+                  :eyes_color,
+                  :freckles,
+                  :freckles_color,
+                  :freckles_probability,
+                  :glasses,
+                  :glasses_color,
+                  :glasses_probability,
+                  :hair,
+                  :hair_accessories,
+                  :hair_accessories_color,
+                  :hair_accessories_probability,
+                  :hair_color,
+                  :head,
+                  :mouth,
+                  :mouth_color,
+                  :nose,
+                  :nose_color,
+                  :skin_color
+                ],
+                true
+              )
 
   @doc false
   @spec validate!(keyword()) :: map()
@@ -83,15 +110,20 @@ defmodule DicebearLorelei.Validation do
   defp validate_option!(:rotate, value), do: validate_integer!(:rotate, value, 0, 360)
   defp validate_option!(:scale, value), do: validate_integer!(:scale, value, 0, 200)
   defp validate_option!(:radius, value), do: validate_integer!(:radius, value, 0, 50)
-  defp validate_option!(:translate_x, value), do: validate_integer!(:translate_x, value, -100, 100)
-  defp validate_option!(:translate_y, value), do: validate_integer!(:translate_y, value, -100, 100)
+
+  defp validate_option!(:translate_x, value),
+    do: validate_integer!(:translate_x, value, -100, 100)
+
+  defp validate_option!(:translate_y, value),
+    do: validate_integer!(:translate_y, value, -100, 100)
 
   defp validate_option!(:size, nil), do: nil
 
   defp validate_option!(:size, value) when is_integer(value) and value >= 1, do: value
 
   defp validate_option!(:size, value) do
-    raise ArgumentError, "invalid :size, expected nil or a positive integer, got: #{inspect(value)}"
+    raise ArgumentError,
+          "invalid :size, expected nil or a positive integer, got: #{inspect(value)}"
   end
 
   # Probability options (0–100)
@@ -141,7 +173,8 @@ defmodule DicebearLorelei.Validation do
     validate_color_list!(key, value)
   end
 
-  defp validate_option!(:background_color, value), do: validate_color_list!(:background_color, value)
+  defp validate_option!(:background_color, value),
+    do: validate_color_list!(:background_color, value)
 
   defp validate_option!(:background_type, value) when is_list(value) do
     Enum.each(value, fn item ->

@@ -1,0 +1,20 @@
+# Build artifacts
+/_build/
+/deps/
+
+# Test and documentation
+/cover/
+/doc/
+/tmp/
+
+# Mix artifacts
+/.fetch
+erl_crash.dump
+*.ez
+*.tar
+
+# Dialyzer
+/priv/plts/
+
+# Editor
+.elixir_ls/

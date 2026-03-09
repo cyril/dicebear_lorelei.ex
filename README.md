@@ -11,7 +11,7 @@ Pure Elixir port of the [DiceBear](https://dicebear.com) **Lorelei** avatar styl
 > Design by [Lisa Wischofsky](https://www.instagram.com/lischi_art/), licensed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 > Code licensed under MIT.
 
-![Example avatars](img/banner.svg)
+![Example avatars](https://raw.githubusercontent.com/cyril/dicebear_lorelei.ex/3f82c86c1cf10d16f2bc20f5be10360b5fd070a1/img/banner.svg)
 
 ## Installation
 

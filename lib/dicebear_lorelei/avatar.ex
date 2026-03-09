@@ -4,17 +4,17 @@ defmodule DicebearLorelei.Avatar do
   alias DicebearLorelei.Prng
 
   alias DicebearLorelei.Components.{
-    Hair,
-    Head,
-    Eyes,
-    Eyebrows,
-    Mouth,
-    Nose,
     Beard,
-    Glasses,
     Earrings,
+    Eyebrows,
+    Eyes,
     Freckles,
-    HairAccessories
+    Glasses,
+    Hair,
+    HairAccessories,
+    Head,
+    Mouth,
+    Nose
   }
 
   # -- constants (upstream Lorelei uses a fixed 980×980 canvas) -----------
